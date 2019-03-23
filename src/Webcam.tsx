@@ -8,9 +8,8 @@ import usePredictions from "./usePredictions";
 
 
 const Webcam = () => {
-  const net = useNet();
   const { streamReady, videoRef } = useWebcam();
-  const prediction = usePredictions(net, videoRef.current)
+  const prediction = usePredictions(videoRef.current)
 
   if (streamReady) {
     return (

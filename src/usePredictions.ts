@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 
 import * as tf from "@tensorflow/tfjs";
 import useNet from "./useNet";
-import useWebcam from "./useWebcam";
-import { MobileNet } from "@tensorflow-models/mobilenet";
 
 const formatPrediction = (result: any) => {
   return `
@@ -12,9 +10,10 @@ const formatPrediction = (result: any) => {
           `;
 };
 
-const usePredictions = (net: MobileNet | null, video: HTMLVideoElement | null) => {
+const usePredictions = (video: HTMLVideoElement | null) => {
   const [prediction, setPrediction] = useState("none");
   const [frame, setFrame] = useState(0);
+  const net = useNet();
 
 
   useEffect(() => {
