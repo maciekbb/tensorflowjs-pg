@@ -1,14 +1,11 @@
 import React, { useRef, useEffect, useState } from "react";
-import { getNet } from "./getNet";
+import useNet from "./useNet";
 
-const classify = async (img: HTMLImageElement) => {
-    const net = await getNet()
-    return net.classify(img)
-}
 
 const ClassifiableImage = (props: {src: string}) => {
     const imgRef = useRef<HTMLImageElement>(null)
     const [cls, setCls] = useState()
+    const net = useNet();
 
     useEffect(() => {
         let didCancel = false;
@@ -16,8 +13,8 @@ const ClassifiableImage = (props: {src: string}) => {
         setCls(null);
 
         const img = imgRef.current;
-        if (img) {
-            classify(img).then((result) => {
+        if (net && img) {
+            net.classify(img).then((result) => {
                 if (!didCancel) {
                     setCls(result.map(x => x.className).join(", "))
                 }
