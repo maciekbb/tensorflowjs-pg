@@ -10,7 +10,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <ClassifiableImage src="https://i.imgur.com/JlUvsxa.jpg"/> */}
+        <ClassifiableImage src="https://i.imgur.com/JlUvsxa.jpg"/>
         <Webcam />
       </div>
     );

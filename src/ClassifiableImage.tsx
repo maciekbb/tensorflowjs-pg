@@ -24,7 +24,7 @@ const ClassifiableImage = (props: {src: string}) => {
         return () => {
             didCancel = true
         }
-    }, [props.src])
+    }, [props.src, net])
 
     return <div>
         <img ref={imgRef} crossOrigin="anonymous" src={props.src} width="227" height="227"/>
