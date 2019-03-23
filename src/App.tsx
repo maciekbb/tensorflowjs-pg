@@ -4,6 +4,8 @@ import './App.css';
 import ClassifiableImage from './ClassifiableImage';
 import Webcam from './Webcam';
 
+
+
 class App extends Component {
   render() {
     return (

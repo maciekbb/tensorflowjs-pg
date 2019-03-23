@@ -7,7 +7,7 @@ const classify = async (img: HTMLImageElement) => {
 }
 
 const ClassifiableImage = (props: {src: string}) => {
-    const imgRef = useRef(null)
+    const imgRef = useRef<HTMLImageElement>(null)
     const [cls, setCls] = useState()
 
     useEffect(() => {
